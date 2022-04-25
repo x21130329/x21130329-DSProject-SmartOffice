@@ -54,7 +54,7 @@ public final class RoomControllerServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\016service1.proto\"\037\n\013doorRequest\022\020\n\010passC" +
-      "ode\030\001 \001(\t\"\034\n\tdoorReply\022\017\n\007success\030\001 \001(\t\"" +
+      "ode\030\001 \001(\005\"\034\n\tdoorReply\022\017\n\007success\030\001 \001(\t\"" +
       "\033\n\013tempRequest\022\014\n\004temp\030\001 \001(\001\",\n\ttempRepl" +
       "y\022\017\n\007tooHigh\030\001 \001(\t\022\016\n\006tooLow\030\002 \001(\t\"#\n\014li" +
       "ghtRequest\022\023\n\013timeElapsed\030\001 \001(\001\"-\n\nlight" +

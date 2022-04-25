@@ -8,12 +8,7 @@ public interface doorRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string passCode = 1;</code>
+   * <code>int32 passCode = 1;</code>
    */
-  java.lang.String getPassCode();
-  /**
-   * <code>string passCode = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getPassCodeBytes();
+  int getPassCode();
 }

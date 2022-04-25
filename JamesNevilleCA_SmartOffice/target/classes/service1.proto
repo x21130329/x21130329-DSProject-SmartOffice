@@ -12,12 +12,11 @@ service RoomController {
 }
   
 message doorRequest{
-	string passCode = 1;
+	int32 passCode = 1;
 }
 
 message doorReply{
 	string success = 1;
-	
 }
 
 message tempRequest{

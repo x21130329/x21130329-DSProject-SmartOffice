@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private doorRequest() {
-    passCode_ = "";
+    passCode_ = 0;
   }
 
   @java.lang.Override
@@ -43,10 +43,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            passCode_ = s;
+            passCode_ = input.readInt32();
             break;
           }
           default: {
@@ -82,37 +81,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PASSCODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object passCode_;
+  private int passCode_;
   /**
-   * <code>string passCode = 1;</code>
+   * <code>int32 passCode = 1;</code>
    */
-  public java.lang.String getPassCode() {
-    java.lang.Object ref = passCode_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      passCode_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string passCode = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getPassCodeBytes() {
-    java.lang.Object ref = passCode_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      passCode_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getPassCode() {
+    return passCode_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -129,8 +103,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getPassCodeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, passCode_);
+    if (passCode_ != 0) {
+      output.writeInt32(1, passCode_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getPassCodeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, passCode_);
+    if (passCode_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, passCode_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -160,8 +135,8 @@ private static final long serialVersionUID = 0L;
     ds.java.smartOffice.doorRequest other = (ds.java.smartOffice.doorRequest) obj;
 
     boolean result = true;
-    result = result && getPassCode()
-        .equals(other.getPassCode());
+    result = result && (getPassCode()
+        == other.getPassCode());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -174,7 +149,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PASSCODE_FIELD_NUMBER;
-    hash = (53 * hash) + getPassCode().hashCode();
+    hash = (53 * hash) + getPassCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -308,7 +283,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      passCode_ = "";
+      passCode_ = 0;
 
       return this;
     }
@@ -385,9 +360,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ds.java.smartOffice.doorRequest other) {
       if (other == ds.java.smartOffice.doorRequest.getDefaultInstance()) return this;
-      if (!other.getPassCode().isEmpty()) {
-        passCode_ = other.passCode_;
-        onChanged();
+      if (other.getPassCode() != 0) {
+        setPassCode(other.getPassCode());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -418,71 +392,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object passCode_ = "";
+    private int passCode_ ;
     /**
-     * <code>string passCode = 1;</code>
+     * <code>int32 passCode = 1;</code>
      */
-    public java.lang.String getPassCode() {
-      java.lang.Object ref = passCode_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        passCode_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getPassCode() {
+      return passCode_;
     }
     /**
-     * <code>string passCode = 1;</code>
+     * <code>int32 passCode = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getPassCodeBytes() {
-      java.lang.Object ref = passCode_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        passCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string passCode = 1;</code>
-     */
-    public Builder setPassCode(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setPassCode(int value) {
+      
       passCode_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string passCode = 1;</code>
+     * <code>int32 passCode = 1;</code>
      */
     public Builder clearPassCode() {
       
-      passCode_ = getDefaultInstance().getPassCode();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string passCode = 1;</code>
-     */
-    public Builder setPassCodeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      passCode_ = value;
+      passCode_ = 0;
       onChanged();
       return this;
     }
