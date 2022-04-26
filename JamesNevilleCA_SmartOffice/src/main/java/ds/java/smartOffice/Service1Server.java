@@ -160,19 +160,17 @@ public class Service1Server extends RoomControllerImplBase {
 		number = random.nextInt(max + min) + min;
 		
 		if (number <=16) {
-			firstString = "Temp is too cold";
+			firstString = "Too cold";
 		}
-		else if(number  >16 && number  <=20){
-			firstString = "Temp is OK";
+		else if(number >16 && number  <=22){
+			firstString = "Temp OK";
 		}
 		else {
-			firstString = "Temp is too Hot";
+			firstString = "Too Hot";
 		}
 
 		tempReply reply = tempReply.newBuilder().setTempResult1(number).build();
 		tempReply reply2 = tempReply.newBuilder().setTempResult2(firstString).build();
-		
-		
 		
 		responseObserver.onNext(reply);
 		responseObserver.onNext(reply2);

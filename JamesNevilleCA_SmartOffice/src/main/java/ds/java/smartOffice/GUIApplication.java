@@ -178,7 +178,7 @@ public class GUIApplication {
 		});
 		
 		
-		textResponse = new JTextArea(3, 20);
+		textResponse = new JTextArea(8, 20);
 		textResponse .setLineWrap(true);
 		textResponse.setWrapStyleWord(true);
 		
@@ -191,7 +191,7 @@ public class GUIApplication {
 		frame.getContentPane().add(panel_service_2);
 		panel_service_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JLabel lblNewLabel_2 = new JLabel("Change Office Lighting");
+		JLabel lblNewLabel_2 = new JLabel("Change Office Lighting" + "\n");
 		
 		
 		
@@ -216,23 +216,26 @@ public class GUIApplication {
 		JButton btnTemp = new JButton("Check");
 		btnTemp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int num2 = Integer.parseInt(textNumber1.getText());
+				int num2 = 0;
 				tempRequest req = tempRequest.newBuilder().setTemp1(num2).build();
 				
-				String mes = textMes.getText();
+				String mes = "";
 				tempRequest req2 = tempRequest.newBuilder().setTemp2(mes).build();
 				
-				Iterator<tempReply> response1 = blockingStub.airCon(req);
-				Iterator<tempReply> response2 = blockingStub.airCon(req2);
+				Iterator<tempReply> response = blockingStub.airCon(req);
+				Iterator<tempReply> response1 = blockingStub.airCon(req2);
 				
-				textResponse.append(response1.getTempResult1()+ "\n");
+				while(response.hasNext()) {
+					tempReply temp = response.next();
+					tempReply temp2 = response1.next();
+					
+					textResponse.append(((tempReplyOrBuilder) temp).getTempResult1()+ "");
+					System.out.println(temp);
+					textResponse.append(((tempReplyOrBuilder) temp2).getTempResult2()+ "\n");
+					System.out.println(temp2);
+					
 				
-				//System.out.println("res: " + response.getTempResult1());
-				
-				textResponse.append(response2.getTempResult2());
-				
-				//System.out.println("res: " + response2.getTempResult2());
-
+				}
 			}
 		});
 		panel_service_1.add(lblNewLabel_1);
