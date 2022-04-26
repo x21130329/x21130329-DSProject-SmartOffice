@@ -16,7 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private tempReply() {
-    tempResult_ = "";
+    tempResult1_ = 0;
+    tempResult2_ = "";
   }
 
   @java.lang.Override
@@ -43,10 +44,15 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
+          case 8: {
+
+            tempResult1_ = input.readInt32();
+            break;
+          }
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            tempResult_ = s;
+            tempResult2_ = s;
             break;
           }
           default: {
@@ -81,34 +87,43 @@ private static final long serialVersionUID = 0L;
             ds.java.smartOffice.tempReply.class, ds.java.smartOffice.tempReply.Builder.class);
   }
 
-  public static final int TEMPRESULT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object tempResult_;
+  public static final int TEMPRESULT1_FIELD_NUMBER = 1;
+  private int tempResult1_;
   /**
-   * <code>string tempResult = 1;</code>
+   * <code>int32 tempResult1 = 1;</code>
    */
-  public java.lang.String getTempResult() {
-    java.lang.Object ref = tempResult_;
+  public int getTempResult1() {
+    return tempResult1_;
+  }
+
+  public static final int TEMPRESULT2_FIELD_NUMBER = 2;
+  private volatile java.lang.Object tempResult2_;
+  /**
+   * <code>string tempResult2 = 2;</code>
+   */
+  public java.lang.String getTempResult2() {
+    java.lang.Object ref = tempResult2_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      tempResult_ = s;
+      tempResult2_ = s;
       return s;
     }
   }
   /**
-   * <code>string tempResult = 1;</code>
+   * <code>string tempResult2 = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getTempResultBytes() {
-    java.lang.Object ref = tempResult_;
+      getTempResult2Bytes() {
+    java.lang.Object ref = tempResult2_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      tempResult_ = b;
+      tempResult2_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -129,8 +144,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTempResultBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tempResult_);
+    if (tempResult1_ != 0) {
+      output.writeInt32(1, tempResult1_);
+    }
+    if (!getTempResult2Bytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tempResult2_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +159,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTempResultBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tempResult_);
+    if (tempResult1_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, tempResult1_);
+    }
+    if (!getTempResult2Bytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tempResult2_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -160,8 +182,10 @@ private static final long serialVersionUID = 0L;
     ds.java.smartOffice.tempReply other = (ds.java.smartOffice.tempReply) obj;
 
     boolean result = true;
-    result = result && getTempResult()
-        .equals(other.getTempResult());
+    result = result && (getTempResult1()
+        == other.getTempResult1());
+    result = result && getTempResult2()
+        .equals(other.getTempResult2());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -173,8 +197,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TEMPRESULT_FIELD_NUMBER;
-    hash = (53 * hash) + getTempResult().hashCode();
+    hash = (37 * hash) + TEMPRESULT1_FIELD_NUMBER;
+    hash = (53 * hash) + getTempResult1();
+    hash = (37 * hash) + TEMPRESULT2_FIELD_NUMBER;
+    hash = (53 * hash) + getTempResult2().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -308,7 +334,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      tempResult_ = "";
+      tempResult1_ = 0;
+
+      tempResult2_ = "";
 
       return this;
     }
@@ -336,7 +364,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ds.java.smartOffice.tempReply buildPartial() {
       ds.java.smartOffice.tempReply result = new ds.java.smartOffice.tempReply(this);
-      result.tempResult_ = tempResult_;
+      result.tempResult1_ = tempResult1_;
+      result.tempResult2_ = tempResult2_;
       onBuilt();
       return result;
     }
@@ -385,8 +414,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ds.java.smartOffice.tempReply other) {
       if (other == ds.java.smartOffice.tempReply.getDefaultInstance()) return this;
-      if (!other.getTempResult().isEmpty()) {
-        tempResult_ = other.tempResult_;
+      if (other.getTempResult1() != 0) {
+        setTempResult1(other.getTempResult1());
+      }
+      if (!other.getTempResult2().isEmpty()) {
+        tempResult2_ = other.tempResult2_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -418,71 +450,97 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object tempResult_ = "";
+    private int tempResult1_ ;
     /**
-     * <code>string tempResult = 1;</code>
+     * <code>int32 tempResult1 = 1;</code>
      */
-    public java.lang.String getTempResult() {
-      java.lang.Object ref = tempResult_;
+    public int getTempResult1() {
+      return tempResult1_;
+    }
+    /**
+     * <code>int32 tempResult1 = 1;</code>
+     */
+    public Builder setTempResult1(int value) {
+      
+      tempResult1_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 tempResult1 = 1;</code>
+     */
+    public Builder clearTempResult1() {
+      
+      tempResult1_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object tempResult2_ = "";
+    /**
+     * <code>string tempResult2 = 2;</code>
+     */
+    public java.lang.String getTempResult2() {
+      java.lang.Object ref = tempResult2_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        tempResult_ = s;
+        tempResult2_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string tempResult = 1;</code>
+     * <code>string tempResult2 = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getTempResultBytes() {
-      java.lang.Object ref = tempResult_;
+        getTempResult2Bytes() {
+      java.lang.Object ref = tempResult2_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        tempResult_ = b;
+        tempResult2_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string tempResult = 1;</code>
+     * <code>string tempResult2 = 2;</code>
      */
-    public Builder setTempResult(
+    public Builder setTempResult2(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      tempResult_ = value;
+      tempResult2_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string tempResult = 1;</code>
+     * <code>string tempResult2 = 2;</code>
      */
-    public Builder clearTempResult() {
+    public Builder clearTempResult2() {
       
-      tempResult_ = getDefaultInstance().getTempResult();
+      tempResult2_ = getDefaultInstance().getTempResult2();
       onChanged();
       return this;
     }
     /**
-     * <code>string tempResult = 1;</code>
+     * <code>string tempResult2 = 2;</code>
      */
-    public Builder setTempResultBytes(
+    public Builder setTempResult2Bytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      tempResult_ = value;
+      tempResult2_ = value;
       onChanged();
       return this;
     }

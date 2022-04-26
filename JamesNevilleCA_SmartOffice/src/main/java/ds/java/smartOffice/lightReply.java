@@ -16,8 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private lightReply() {
-    stayOn_ = "";
-    turnOff_ = "";
+    lightState_ = "";
   }
 
   @java.lang.Override
@@ -47,13 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            stayOn_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            turnOff_ = s;
+            lightState_ = s;
             break;
           }
           default: {
@@ -88,68 +81,34 @@ private static final long serialVersionUID = 0L;
             ds.java.smartOffice.lightReply.class, ds.java.smartOffice.lightReply.Builder.class);
   }
 
-  public static final int STAYON_FIELD_NUMBER = 1;
-  private volatile java.lang.Object stayOn_;
+  public static final int LIGHTSTATE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object lightState_;
   /**
-   * <code>string stayOn = 1;</code>
+   * <code>string lightState = 1;</code>
    */
-  public java.lang.String getStayOn() {
-    java.lang.Object ref = stayOn_;
+  public java.lang.String getLightState() {
+    java.lang.Object ref = lightState_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      stayOn_ = s;
+      lightState_ = s;
       return s;
     }
   }
   /**
-   * <code>string stayOn = 1;</code>
+   * <code>string lightState = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getStayOnBytes() {
-    java.lang.Object ref = stayOn_;
+      getLightStateBytes() {
+    java.lang.Object ref = lightState_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      stayOn_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int TURNOFF_FIELD_NUMBER = 2;
-  private volatile java.lang.Object turnOff_;
-  /**
-   * <code>string turnOff = 2;</code>
-   */
-  public java.lang.String getTurnOff() {
-    java.lang.Object ref = turnOff_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      turnOff_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string turnOff = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getTurnOffBytes() {
-    java.lang.Object ref = turnOff_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      turnOff_ = b;
+      lightState_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -170,11 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getStayOnBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, stayOn_);
-    }
-    if (!getTurnOffBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, turnOff_);
+    if (!getLightStateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, lightState_);
     }
     unknownFields.writeTo(output);
   }
@@ -185,11 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getStayOnBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, stayOn_);
-    }
-    if (!getTurnOffBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, turnOff_);
+    if (!getLightStateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, lightState_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -207,10 +160,8 @@ private static final long serialVersionUID = 0L;
     ds.java.smartOffice.lightReply other = (ds.java.smartOffice.lightReply) obj;
 
     boolean result = true;
-    result = result && getStayOn()
-        .equals(other.getStayOn());
-    result = result && getTurnOff()
-        .equals(other.getTurnOff());
+    result = result && getLightState()
+        .equals(other.getLightState());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -222,10 +173,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + STAYON_FIELD_NUMBER;
-    hash = (53 * hash) + getStayOn().hashCode();
-    hash = (37 * hash) + TURNOFF_FIELD_NUMBER;
-    hash = (53 * hash) + getTurnOff().hashCode();
+    hash = (37 * hash) + LIGHTSTATE_FIELD_NUMBER;
+    hash = (53 * hash) + getLightState().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -359,9 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      stayOn_ = "";
-
-      turnOff_ = "";
+      lightState_ = "";
 
       return this;
     }
@@ -389,8 +336,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ds.java.smartOffice.lightReply buildPartial() {
       ds.java.smartOffice.lightReply result = new ds.java.smartOffice.lightReply(this);
-      result.stayOn_ = stayOn_;
-      result.turnOff_ = turnOff_;
+      result.lightState_ = lightState_;
       onBuilt();
       return result;
     }
@@ -439,12 +385,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ds.java.smartOffice.lightReply other) {
       if (other == ds.java.smartOffice.lightReply.getDefaultInstance()) return this;
-      if (!other.getStayOn().isEmpty()) {
-        stayOn_ = other.stayOn_;
-        onChanged();
-      }
-      if (!other.getTurnOff().isEmpty()) {
-        turnOff_ = other.turnOff_;
+      if (!other.getLightState().isEmpty()) {
+        lightState_ = other.lightState_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -476,140 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object stayOn_ = "";
+    private java.lang.Object lightState_ = "";
     /**
-     * <code>string stayOn = 1;</code>
+     * <code>string lightState = 1;</code>
      */
-    public java.lang.String getStayOn() {
-      java.lang.Object ref = stayOn_;
+    public java.lang.String getLightState() {
+      java.lang.Object ref = lightState_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        stayOn_ = s;
+        lightState_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string stayOn = 1;</code>
+     * <code>string lightState = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getStayOnBytes() {
-      java.lang.Object ref = stayOn_;
+        getLightStateBytes() {
+      java.lang.Object ref = lightState_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        stayOn_ = b;
+        lightState_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string stayOn = 1;</code>
+     * <code>string lightState = 1;</code>
      */
-    public Builder setStayOn(
+    public Builder setLightState(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      stayOn_ = value;
+      lightState_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string stayOn = 1;</code>
+     * <code>string lightState = 1;</code>
      */
-    public Builder clearStayOn() {
+    public Builder clearLightState() {
       
-      stayOn_ = getDefaultInstance().getStayOn();
+      lightState_ = getDefaultInstance().getLightState();
       onChanged();
       return this;
     }
     /**
-     * <code>string stayOn = 1;</code>
+     * <code>string lightState = 1;</code>
      */
-    public Builder setStayOnBytes(
+    public Builder setLightStateBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      stayOn_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object turnOff_ = "";
-    /**
-     * <code>string turnOff = 2;</code>
-     */
-    public java.lang.String getTurnOff() {
-      java.lang.Object ref = turnOff_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        turnOff_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string turnOff = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTurnOffBytes() {
-      java.lang.Object ref = turnOff_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        turnOff_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string turnOff = 2;</code>
-     */
-    public Builder setTurnOff(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      turnOff_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string turnOff = 2;</code>
-     */
-    public Builder clearTurnOff() {
-      
-      turnOff_ = getDefaultInstance().getTurnOff();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string turnOff = 2;</code>
-     */
-    public Builder setTurnOffBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      turnOff_ = value;
+      lightState_ = value;
       onChanged();
       return this;
     }

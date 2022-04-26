@@ -19,6 +19,7 @@ import ds.java.smartOffice.RoomControllerGrpc.RoomControllerImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import java.util.Random;
 
 public class Service1Server extends RoomControllerImplBase {
 	
@@ -130,18 +131,51 @@ public class Service1Server extends RoomControllerImplBase {
 		responseObserver.onCompleted();
 	}
 	
-	public void airCon(tempRequest request, 
-			StreamObserver<tempReply> responseObserver) {
+	public void lighting(lightRequest request, 
+			StreamObserver<lightReply> responseObserver) {
 		
 		String value = ""; 
-		if (request.getTemp() == "") {
+		if (request.getLights() == "") {
 			value = "Lights state changed";
 		}
 
 		
-		tempReply reply = tempReply.newBuilder().setTempResult(value).build();
+		lightReply reply = lightReply.newBuilder().setLightState(value).build();
 
 		responseObserver.onNext(reply);
+
+		responseObserver.onCompleted();
+	}
+	
+	public void airCon(tempRequest request, 
+			StreamObserver<tempReply> responseObserver) {
+		
+		int number = request.getTemp1();
+		String firstString = request.getTemp2(); 
+		
+		int min = 10;
+		int max = 30;
+
+		Random random = new Random();
+		number = random.nextInt(max + min) + min;
+		
+		if (number <=16) {
+			firstString = "Temp is too cold";
+		}
+		else if(number  >16 && number  <=20){
+			firstString = "Temp is OK";
+		}
+		else {
+			firstString = "Temp is too Hot";
+		}
+
+		tempReply reply = tempReply.newBuilder().setTempResult1(number).build();
+		tempReply reply2 = tempReply.newBuilder().setTempResult2(firstString).build();
+		
+		
+		
+		responseObserver.onNext(reply);
+		responseObserver.onNext(reply2);
 
 		responseObserver.onCompleted();
 	}

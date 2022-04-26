@@ -8,22 +8,12 @@ public interface lightReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string stayOn = 1;</code>
+   * <code>string lightState = 1;</code>
    */
-  java.lang.String getStayOn();
+  java.lang.String getLightState();
   /**
-   * <code>string stayOn = 1;</code>
+   * <code>string lightState = 1;</code>
    */
   com.google.protobuf.ByteString
-      getStayOnBytes();
-
-  /**
-   * <code>string turnOff = 2;</code>
-   */
-  java.lang.String getTurnOff();
-  /**
-   * <code>string turnOff = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getTurnOffBytes();
+      getLightStateBytes();
 }

@@ -55,15 +55,16 @@ public final class RoomControllerServiceImpl {
     java.lang.String[] descriptorData = {
       "\n\016service1.proto\"\037\n\013doorRequest\022\020\n\010passC" +
       "ode\030\001 \001(\005\"\034\n\tdoorReply\022\017\n\007success\030\001 \001(\t\"" +
-      "\033\n\013tempRequest\022\014\n\004temp\030\001 \001(\t\"\037\n\ttempRepl" +
-      "y\022\022\n\ntempResult\030\001 \001(\t\"#\n\014lightRequest\022\023\n" +
-      "\013timeElapsed\030\001 \001(\001\"-\n\nlightReply\022\016\n\006stay" +
-      "On\030\001 \001(\t\022\017\n\007turnOff\030\002 \001(\t2\212\001\n\016RoomContro" +
-      "ller\022(\n\ndoorAccess\022\014.doorRequest\032\n.doorR" +
-      "eply\"\000\022$\n\006airCon\022\014.tempRequest\032\n.tempRep" +
-      "ly\"\000\022(\n\010lighting\022\r.lightRequest\032\013.lightR" +
-      "eply\"\000B2\n\023ds.java.smartOfficeB\031RoomContr" +
-      "ollerServiceImplP\001b\006proto3"
+      "+\n\013tempRequest\022\r\n\005temp1\030\001 \001(\005\022\r\n\005temp2\030\002" +
+      " \001(\t\"5\n\ttempReply\022\023\n\013tempResult1\030\001 \001(\005\022\023" +
+      "\n\013tempResult2\030\002 \001(\t\"\036\n\014lightRequest\022\016\n\006l" +
+      "ights\030\001 \001(\t\" \n\nlightReply\022\022\n\nlightState\030" +
+      "\001 \001(\t2\214\001\n\016RoomController\022(\n\ndoorAccess\022\014" +
+      ".doorRequest\032\n.doorReply\"\000\022&\n\006airCon\022\014.t" +
+      "empRequest\032\n.tempReply\"\0000\001\022(\n\010lighting\022\r" +
+      ".lightRequest\032\013.lightReply\"\000B2\n\023ds.java." +
+      "smartOfficeB\031RoomControllerServiceImplP\001" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -94,25 +95,25 @@ public final class RoomControllerServiceImpl {
     internal_static_tempRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tempRequest_descriptor,
-        new java.lang.String[] { "Temp", });
+        new java.lang.String[] { "Temp1", "Temp2", });
     internal_static_tempReply_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_tempReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tempReply_descriptor,
-        new java.lang.String[] { "TempResult", });
+        new java.lang.String[] { "TempResult1", "TempResult2", });
     internal_static_lightRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_lightRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_lightRequest_descriptor,
-        new java.lang.String[] { "TimeElapsed", });
+        new java.lang.String[] { "Lights", });
     internal_static_lightReply_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_lightReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_lightReply_descriptor,
-        new java.lang.String[] { "StayOn", "TurnOff", });
+        new java.lang.String[] { "LightState", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private lightRequest() {
-    timeElapsed_ = 0D;
+    lights_ = "";
   }
 
   @java.lang.Override
@@ -43,9 +43,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 9: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            timeElapsed_ = input.readDouble();
+            lights_ = s;
             break;
           }
           default: {
@@ -80,13 +81,38 @@ private static final long serialVersionUID = 0L;
             ds.java.smartOffice.lightRequest.class, ds.java.smartOffice.lightRequest.Builder.class);
   }
 
-  public static final int TIMEELAPSED_FIELD_NUMBER = 1;
-  private double timeElapsed_;
+  public static final int LIGHTS_FIELD_NUMBER = 1;
+  private volatile java.lang.Object lights_;
   /**
-   * <code>double timeElapsed = 1;</code>
+   * <code>string lights = 1;</code>
    */
-  public double getTimeElapsed() {
-    return timeElapsed_;
+  public java.lang.String getLights() {
+    java.lang.Object ref = lights_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      lights_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string lights = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getLightsBytes() {
+    java.lang.Object ref = lights_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      lights_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (timeElapsed_ != 0D) {
-      output.writeDouble(1, timeElapsed_);
+    if (!getLightsBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, lights_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (timeElapsed_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(1, timeElapsed_);
+    if (!getLightsBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, lights_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -135,10 +160,8 @@ private static final long serialVersionUID = 0L;
     ds.java.smartOffice.lightRequest other = (ds.java.smartOffice.lightRequest) obj;
 
     boolean result = true;
-    result = result && (
-        java.lang.Double.doubleToLongBits(getTimeElapsed())
-        == java.lang.Double.doubleToLongBits(
-            other.getTimeElapsed()));
+    result = result && getLights()
+        .equals(other.getLights());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -150,9 +173,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TIMEELAPSED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getTimeElapsed()));
+    hash = (37 * hash) + LIGHTS_FIELD_NUMBER;
+    hash = (53 * hash) + getLights().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -286,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      timeElapsed_ = 0D;
+      lights_ = "";
 
       return this;
     }
@@ -314,7 +336,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ds.java.smartOffice.lightRequest buildPartial() {
       ds.java.smartOffice.lightRequest result = new ds.java.smartOffice.lightRequest(this);
-      result.timeElapsed_ = timeElapsed_;
+      result.lights_ = lights_;
       onBuilt();
       return result;
     }
@@ -363,8 +385,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ds.java.smartOffice.lightRequest other) {
       if (other == ds.java.smartOffice.lightRequest.getDefaultInstance()) return this;
-      if (other.getTimeElapsed() != 0D) {
-        setTimeElapsed(other.getTimeElapsed());
+      if (!other.getLights().isEmpty()) {
+        lights_ = other.lights_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -395,28 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double timeElapsed_ ;
+    private java.lang.Object lights_ = "";
     /**
-     * <code>double timeElapsed = 1;</code>
+     * <code>string lights = 1;</code>
      */
-    public double getTimeElapsed() {
-      return timeElapsed_;
+    public java.lang.String getLights() {
+      java.lang.Object ref = lights_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        lights_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>double timeElapsed = 1;</code>
+     * <code>string lights = 1;</code>
      */
-    public Builder setTimeElapsed(double value) {
-      
-      timeElapsed_ = value;
+    public com.google.protobuf.ByteString
+        getLightsBytes() {
+      java.lang.Object ref = lights_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        lights_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string lights = 1;</code>
+     */
+    public Builder setLights(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      lights_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double timeElapsed = 1;</code>
+     * <code>string lights = 1;</code>
      */
-    public Builder clearTimeElapsed() {
+    public Builder clearLights() {
       
-      timeElapsed_ = 0D;
+      lights_ = getDefaultInstance().getLights();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string lights = 1;</code>
+     */
+    public Builder setLightsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      lights_ = value;
       onChanged();
       return this;
     }

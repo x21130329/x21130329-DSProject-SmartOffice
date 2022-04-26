@@ -7,7 +7,7 @@ option java_outer_classname = "RoomControllerServiceImpl";
 
 service RoomController {
 	rpc doorAccess (doorRequest) returns (doorReply){}
-	rpc airCon (tempRequest) returns (tempReply){}
+	rpc airCon (tempRequest) returns (stream tempReply){}
 	rpc lighting (lightRequest) returns (lightReply){}
 }
   
@@ -20,18 +20,19 @@ message doorReply{
 }
 
 message tempRequest{
-	string temp = 1;
+	int32 temp1 = 1;
+	string temp2 = 2;
 }
 
 message tempReply{
-	string tempResult = 1;
+	int32 tempResult1 = 1;
+	string tempResult2 = 2;
 }
 
 message lightRequest{
-	double timeElapsed = 1;
+	string lights = 1;
 }
 
 message lightReply{
-	string stayOn = 1;
-	string turnOff = 2;
+	string lightState = 1;
 }

@@ -8,7 +8,12 @@ public interface lightRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>double timeElapsed = 1;</code>
+   * <code>string lights = 1;</code>
    */
-  double getTimeElapsed();
+  java.lang.String getLights();
+  /**
+   * <code>string lights = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getLightsBytes();
 }

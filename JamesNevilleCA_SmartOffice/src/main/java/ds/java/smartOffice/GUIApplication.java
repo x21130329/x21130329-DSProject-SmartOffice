@@ -28,6 +28,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 
 public class GUIApplication {
@@ -190,7 +191,7 @@ public class GUIApplication {
 		frame.getContentPane().add(panel_service_2);
 		panel_service_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JLabel lblNewLabel_2 = new JLabel("Change Lights");
+		JLabel lblNewLabel_2 = new JLabel("Change Office Lighting");
 		
 		
 		
@@ -200,13 +201,37 @@ public class GUIApplication {
 		btnSwitch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String mes = textMes.getText();
-				tempRequest req = tempRequest.newBuilder().setTemp(mes).build();
+				lightRequest req = lightRequest.newBuilder().setLights(mes).build();
 				
-				tempReply response = blockingStub.airCon(req);
+				lightReply response = blockingStub.lighting(req);
 				
-				textResponse.append(response.getTempResult()+ "\n");
+				textResponse.append(response.getLightState()+ "\n");
 				
-				System.out.println("res: " + response.getTempResult());
+				System.out.println("res: " + response.getLightState());
+
+			}
+		});
+		
+		JLabel lblNewLabel_3 = new JLabel("Check Temperature in Office");
+		JButton btnTemp = new JButton("Check");
+		btnTemp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int num2 = Integer.parseInt(textNumber1.getText());
+				tempRequest req = tempRequest.newBuilder().setTemp1(num2).build();
+				
+				String mes = textMes.getText();
+				tempRequest req2 = tempRequest.newBuilder().setTemp2(mes).build();
+				
+				Iterator<tempReply> response1 = blockingStub.airCon(req);
+				Iterator<tempReply> response2 = blockingStub.airCon(req2);
+				
+				textResponse.append(response1.getTempResult1()+ "\n");
+				
+				//System.out.println("res: " + response.getTempResult1());
+				
+				textResponse.append(response2.getTempResult2());
+				
+				//System.out.println("res: " + response2.getTempResult2());
 
 			}
 		});
@@ -216,7 +241,9 @@ public class GUIApplication {
 		textNumber1.setColumns(10);
 		panel_service_1.add(lblNewLabel_2);
 		panel_service_1.add(btnSwitch);
-		panel_service_2.add(scrollPane);
+		panel_service_1.add(lblNewLabel_3);
+		panel_service_1.add(btnTemp);
+		panel_service_1.add(scrollPane);
 		
 	}
 

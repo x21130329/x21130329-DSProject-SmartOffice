@@ -66,7 +66,7 @@ public final class RoomControllerGrpc {
       fullMethodName = SERVICE_NAME + '/' + "airCon",
       requestType = ds.java.smartOffice.tempRequest.class,
       responseType = ds.java.smartOffice.tempReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<ds.java.smartOffice.tempRequest,
       ds.java.smartOffice.tempReply> getAirConMethod() {
     io.grpc.MethodDescriptor<ds.java.smartOffice.tempRequest, ds.java.smartOffice.tempReply> getAirConMethod;
@@ -75,7 +75,7 @@ public final class RoomControllerGrpc {
         if ((getAirConMethod = RoomControllerGrpc.getAirConMethod) == null) {
           RoomControllerGrpc.getAirConMethod = getAirConMethod = 
               io.grpc.MethodDescriptor.<ds.java.smartOffice.tempRequest, ds.java.smartOffice.tempReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "RoomController", "airCon"))
               .setSampledToLocalTracing(true)
@@ -182,7 +182,7 @@ public final class RoomControllerGrpc {
                   this, METHODID_DOOR_ACCESS)))
           .addMethod(
             getAirConMethod(),
-            asyncUnaryCall(
+            asyncServerStreamingCall(
               new MethodHandlers<
                 ds.java.smartOffice.tempRequest,
                 ds.java.smartOffice.tempReply>(
@@ -228,7 +228,7 @@ public final class RoomControllerGrpc {
      */
     public void airCon(ds.java.smartOffice.tempRequest request,
         io.grpc.stub.StreamObserver<ds.java.smartOffice.tempReply> responseObserver) {
-      asyncUnaryCall(
+      asyncServerStreamingCall(
           getChannel().newCall(getAirConMethod(), getCallOptions()), request, responseObserver);
     }
 
@@ -268,8 +268,9 @@ public final class RoomControllerGrpc {
 
     /**
      */
-    public ds.java.smartOffice.tempReply airCon(ds.java.smartOffice.tempRequest request) {
-      return blockingUnaryCall(
+    public java.util.Iterator<ds.java.smartOffice.tempReply> airCon(
+        ds.java.smartOffice.tempRequest request) {
+      return blockingServerStreamingCall(
           getChannel(), getAirConMethod(), getCallOptions(), request);
     }
 
@@ -305,14 +306,6 @@ public final class RoomControllerGrpc {
         ds.java.smartOffice.doorRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getDoorAccessMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<ds.java.smartOffice.tempReply> airCon(
-        ds.java.smartOffice.tempRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getAirConMethod(), getCallOptions()), request);
     }
 
     /**
