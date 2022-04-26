@@ -20,12 +20,11 @@ message doorReply{
 }
 
 message tempRequest{
-	double temp = 1;
+	string temp = 1;
 }
 
 message tempReply{
-	string tooHigh = 1;
-	string tooLow = 2;
+	string tempResult = 1;
 }
 
 message lightRequest{

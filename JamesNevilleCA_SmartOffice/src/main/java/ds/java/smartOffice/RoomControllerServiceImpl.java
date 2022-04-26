@@ -55,15 +55,15 @@ public final class RoomControllerServiceImpl {
     java.lang.String[] descriptorData = {
       "\n\016service1.proto\"\037\n\013doorRequest\022\020\n\010passC" +
       "ode\030\001 \001(\005\"\034\n\tdoorReply\022\017\n\007success\030\001 \001(\t\"" +
-      "\033\n\013tempRequest\022\014\n\004temp\030\001 \001(\001\",\n\ttempRepl" +
-      "y\022\017\n\007tooHigh\030\001 \001(\t\022\016\n\006tooLow\030\002 \001(\t\"#\n\014li" +
-      "ghtRequest\022\023\n\013timeElapsed\030\001 \001(\001\"-\n\nlight" +
-      "Reply\022\016\n\006stayOn\030\001 \001(\t\022\017\n\007turnOff\030\002 \001(\t2\212" +
-      "\001\n\016RoomController\022(\n\ndoorAccess\022\014.doorRe" +
-      "quest\032\n.doorReply\"\000\022$\n\006airCon\022\014.tempRequ" +
-      "est\032\n.tempReply\"\000\022(\n\010lighting\022\r.lightReq" +
-      "uest\032\013.lightReply\"\000B2\n\023ds.java.smartOffi" +
-      "ceB\031RoomControllerServiceImplP\001b\006proto3"
+      "\033\n\013tempRequest\022\014\n\004temp\030\001 \001(\t\"\037\n\ttempRepl" +
+      "y\022\022\n\ntempResult\030\001 \001(\t\"#\n\014lightRequest\022\023\n" +
+      "\013timeElapsed\030\001 \001(\001\"-\n\nlightReply\022\016\n\006stay" +
+      "On\030\001 \001(\t\022\017\n\007turnOff\030\002 \001(\t2\212\001\n\016RoomContro" +
+      "ller\022(\n\ndoorAccess\022\014.doorRequest\032\n.doorR" +
+      "eply\"\000\022$\n\006airCon\022\014.tempRequest\032\n.tempRep" +
+      "ly\"\000\022(\n\010lighting\022\r.lightRequest\032\013.lightR" +
+      "eply\"\000B2\n\023ds.java.smartOfficeB\031RoomContr" +
+      "ollerServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -100,7 +100,7 @@ public final class RoomControllerServiceImpl {
     internal_static_tempReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tempReply_descriptor,
-        new java.lang.String[] { "TooHigh", "TooLow", });
+        new java.lang.String[] { "TempResult", });
     internal_static_lightRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_lightRequest_fieldAccessorTable = new

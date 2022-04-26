@@ -128,6 +128,21 @@ public class Service1Server extends RoomControllerImplBase {
 		responseObserver.onNext(reply);
 
 		responseObserver.onCompleted();
+	}
+	
+	public void airCon(tempRequest request, 
+			StreamObserver<tempReply> responseObserver) {
 		
+		String value = ""; 
+		if (request.getTemp() == "") {
+			value = "Lights state changed";
+		}
+
+		
+		tempReply reply = tempReply.newBuilder().setTempResult(value).build();
+
+		responseObserver.onNext(reply);
+
+		responseObserver.onCompleted();
 	}
 }

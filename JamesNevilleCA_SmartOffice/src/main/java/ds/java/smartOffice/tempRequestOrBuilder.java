@@ -8,7 +8,12 @@ public interface tempRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>double temp = 1;</code>
+   * <code>string temp = 1;</code>
    */
-  double getTemp();
+  java.lang.String getTemp();
+  /**
+   * <code>string temp = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getTempBytes();
 }

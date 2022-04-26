@@ -16,8 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private tempReply() {
-    tooHigh_ = "";
-    tooLow_ = "";
+    tempResult_ = "";
   }
 
   @java.lang.Override
@@ -47,13 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            tooHigh_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tooLow_ = s;
+            tempResult_ = s;
             break;
           }
           default: {
@@ -88,68 +81,34 @@ private static final long serialVersionUID = 0L;
             ds.java.smartOffice.tempReply.class, ds.java.smartOffice.tempReply.Builder.class);
   }
 
-  public static final int TOOHIGH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object tooHigh_;
+  public static final int TEMPRESULT_FIELD_NUMBER = 1;
+  private volatile java.lang.Object tempResult_;
   /**
-   * <code>string tooHigh = 1;</code>
+   * <code>string tempResult = 1;</code>
    */
-  public java.lang.String getTooHigh() {
-    java.lang.Object ref = tooHigh_;
+  public java.lang.String getTempResult() {
+    java.lang.Object ref = tempResult_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      tooHigh_ = s;
+      tempResult_ = s;
       return s;
     }
   }
   /**
-   * <code>string tooHigh = 1;</code>
+   * <code>string tempResult = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getTooHighBytes() {
-    java.lang.Object ref = tooHigh_;
+      getTempResultBytes() {
+    java.lang.Object ref = tempResult_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      tooHigh_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int TOOLOW_FIELD_NUMBER = 2;
-  private volatile java.lang.Object tooLow_;
-  /**
-   * <code>string tooLow = 2;</code>
-   */
-  public java.lang.String getTooLow() {
-    java.lang.Object ref = tooLow_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      tooLow_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string tooLow = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getTooLowBytes() {
-    java.lang.Object ref = tooLow_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      tooLow_ = b;
+      tempResult_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -170,11 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTooHighBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tooHigh_);
-    }
-    if (!getTooLowBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tooLow_);
+    if (!getTempResultBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tempResult_);
     }
     unknownFields.writeTo(output);
   }
@@ -185,11 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTooHighBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tooHigh_);
-    }
-    if (!getTooLowBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tooLow_);
+    if (!getTempResultBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tempResult_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -207,10 +160,8 @@ private static final long serialVersionUID = 0L;
     ds.java.smartOffice.tempReply other = (ds.java.smartOffice.tempReply) obj;
 
     boolean result = true;
-    result = result && getTooHigh()
-        .equals(other.getTooHigh());
-    result = result && getTooLow()
-        .equals(other.getTooLow());
+    result = result && getTempResult()
+        .equals(other.getTempResult());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -222,10 +173,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TOOHIGH_FIELD_NUMBER;
-    hash = (53 * hash) + getTooHigh().hashCode();
-    hash = (37 * hash) + TOOLOW_FIELD_NUMBER;
-    hash = (53 * hash) + getTooLow().hashCode();
+    hash = (37 * hash) + TEMPRESULT_FIELD_NUMBER;
+    hash = (53 * hash) + getTempResult().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -359,9 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      tooHigh_ = "";
-
-      tooLow_ = "";
+      tempResult_ = "";
 
       return this;
     }
@@ -389,8 +336,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ds.java.smartOffice.tempReply buildPartial() {
       ds.java.smartOffice.tempReply result = new ds.java.smartOffice.tempReply(this);
-      result.tooHigh_ = tooHigh_;
-      result.tooLow_ = tooLow_;
+      result.tempResult_ = tempResult_;
       onBuilt();
       return result;
     }
@@ -439,12 +385,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ds.java.smartOffice.tempReply other) {
       if (other == ds.java.smartOffice.tempReply.getDefaultInstance()) return this;
-      if (!other.getTooHigh().isEmpty()) {
-        tooHigh_ = other.tooHigh_;
-        onChanged();
-      }
-      if (!other.getTooLow().isEmpty()) {
-        tooLow_ = other.tooLow_;
+      if (!other.getTempResult().isEmpty()) {
+        tempResult_ = other.tempResult_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -476,140 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object tooHigh_ = "";
+    private java.lang.Object tempResult_ = "";
     /**
-     * <code>string tooHigh = 1;</code>
+     * <code>string tempResult = 1;</code>
      */
-    public java.lang.String getTooHigh() {
-      java.lang.Object ref = tooHigh_;
+    public java.lang.String getTempResult() {
+      java.lang.Object ref = tempResult_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        tooHigh_ = s;
+        tempResult_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string tooHigh = 1;</code>
+     * <code>string tempResult = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getTooHighBytes() {
-      java.lang.Object ref = tooHigh_;
+        getTempResultBytes() {
+      java.lang.Object ref = tempResult_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        tooHigh_ = b;
+        tempResult_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string tooHigh = 1;</code>
+     * <code>string tempResult = 1;</code>
      */
-    public Builder setTooHigh(
+    public Builder setTempResult(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      tooHigh_ = value;
+      tempResult_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string tooHigh = 1;</code>
+     * <code>string tempResult = 1;</code>
      */
-    public Builder clearTooHigh() {
+    public Builder clearTempResult() {
       
-      tooHigh_ = getDefaultInstance().getTooHigh();
+      tempResult_ = getDefaultInstance().getTempResult();
       onChanged();
       return this;
     }
     /**
-     * <code>string tooHigh = 1;</code>
+     * <code>string tempResult = 1;</code>
      */
-    public Builder setTooHighBytes(
+    public Builder setTempResultBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      tooHigh_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object tooLow_ = "";
-    /**
-     * <code>string tooLow = 2;</code>
-     */
-    public java.lang.String getTooLow() {
-      java.lang.Object ref = tooLow_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        tooLow_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string tooLow = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTooLowBytes() {
-      java.lang.Object ref = tooLow_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tooLow_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string tooLow = 2;</code>
-     */
-    public Builder setTooLow(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      tooLow_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string tooLow = 2;</code>
-     */
-    public Builder clearTooLow() {
-      
-      tooLow_ = getDefaultInstance().getTooLow();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string tooLow = 2;</code>
-     */
-    public Builder setTooLowBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      tooLow_ = value;
+      tempResult_ = value;
       onChanged();
       return this;
     }

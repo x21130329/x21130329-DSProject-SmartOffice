@@ -8,22 +8,12 @@ public interface tempReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string tooHigh = 1;</code>
+   * <code>string tempResult = 1;</code>
    */
-  java.lang.String getTooHigh();
+  java.lang.String getTempResult();
   /**
-   * <code>string tooHigh = 1;</code>
+   * <code>string tempResult = 1;</code>
    */
   com.google.protobuf.ByteString
-      getTooHighBytes();
-
-  /**
-   * <code>string tooLow = 2;</code>
-   */
-  java.lang.String getTooLow();
-  /**
-   * <code>string tooLow = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getTooLowBytes();
+      getTempResultBytes();
 }

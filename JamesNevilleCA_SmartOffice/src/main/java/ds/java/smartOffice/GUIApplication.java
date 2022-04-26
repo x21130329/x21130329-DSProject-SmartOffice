@@ -40,7 +40,7 @@ public class GUIApplication {
 	
 	private JFrame frame;
 	private JTextField textNumber1;
-	private JTextField textNumber2;
+	private JTextField textMes;
 	private JTextArea textResponse ;
 	
 	public static void main(String[] args) {
@@ -144,8 +144,8 @@ public class GUIApplication {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("Client - Service Controller");
-		frame.setBounds(100, 100, 500, 300);
+		frame.setTitle("Client - Smart Office Controller");
+		frame.setBounds(100, 100, 350, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		BoxLayout bl = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS);
@@ -156,20 +156,68 @@ public class GUIApplication {
 		frame.getContentPane().add(panel_service_1);
 		panel_service_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JLabel lblNewLabel_1 = new JLabel("Number 1");
-		panel_service_1.add(lblNewLabel_1);
+		JLabel lblNewLabel_1 = new JLabel("Enter Passcode");
 		
 		textNumber1 = new JTextField();
+		
+		
+		JButton btnOpen = new JButton("Unlock");
+		btnOpen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int num1 = Integer.parseInt(textNumber1.getText());
+				doorRequest req = doorRequest.newBuilder().setPassCode(num1).build();
+				
+				doorReply response = blockingStub.doorAccess(req);
+				
+				textResponse.append(response.getSuccess()+ "\n");
+				
+				System.out.println("res: " + response.getSuccess());
+
+			}
+		});
+		
+		
+		textResponse = new JTextArea(3, 20);
+		textResponse .setLineWrap(true);
+		textResponse.setWrapStyleWord(true);
+		
+		JScrollPane scrollPane = new JScrollPane(textResponse);
+		
+		//textResponse.setSize(new Dimension(15, 30));
+		
+		
+		JPanel panel_service_2 = new JPanel();
+		frame.getContentPane().add(panel_service_2);
+		panel_service_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JLabel lblNewLabel_2 = new JLabel("Change Lights");
+		
+		
+		
+		textMes = new JTextField();
+		
+		JButton btnSwitch = new JButton("Switch");
+		btnSwitch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String mes = textMes.getText();
+				tempRequest req = tempRequest.newBuilder().setTemp(mes).build();
+				
+				tempReply response = blockingStub.airCon(req);
+				
+				textResponse.append(response.getTempResult()+ "\n");
+				
+				System.out.println("res: " + response.getTempResult());
+
+			}
+		});
+		panel_service_1.add(lblNewLabel_1);
 		panel_service_1.add(textNumber1);
+		panel_service_1.add(btnOpen);
 		textNumber1.setColumns(10);
-		
-		JLabel lblNewLabel_2 = new JLabel("Number 2");
 		panel_service_1.add(lblNewLabel_2);
+		panel_service_1.add(btnSwitch);
+		panel_service_2.add(scrollPane);
 		
-		textNumber2 = new JTextField();
-		panel_service_1.add(textNumber2);
-		textNumber2.setColumns(10);
-	
 	}
 
 }
