@@ -210,7 +210,7 @@ public class GUIApplicationDeskBooking {
 			
 				StreamObserver<loginRequest> requestObserver = asyncStub.portalLogin(responseObserver);
 				requestObserver.onNext(loginRequest.newBuilder().setUsername(mes).build());
-				textResponse.append("Username Logged in as" + mes + "\n");
+				textResponse.append("Username Logged in as: " + mes + "\n");
 
 				System.out.println("Client has sent it smessages");
 				requestObserver.onCompleted();

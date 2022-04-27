@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "ds.java.smartOffice";
+option java_outer_classname = "ProjectManagementServiceImpl";
+
+service ProjectManagement{
+	rpc deadline (stream deadlineRequest) returns (deadlineReply){}
+	rpc checkState (stateRequest) returns (stateReply){}
+}
+
+message deadlineRequest{
+	string projectName = 1;
+}
+
+message deadlineReply{
+	string projectTime = 1;
+}
+
+message stateRequest{
+	string projectNameState = 1;
+}
+
+message stateReply{
+	string projectComplete = 1;
+
+}
