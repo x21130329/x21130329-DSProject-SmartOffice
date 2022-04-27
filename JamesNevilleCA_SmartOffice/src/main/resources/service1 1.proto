@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "ds.java.smartOffice";
+option java_outer_classname = "RoomControllerServiceImpl";
+
+service RoomController {
+	rpc doorAccess (doorRequest) returns (doorReply){}
+	rpc airCon (tempRequest) returns (tempReply){}
+	rpc lighting (lightRequest) returns (lightReply){}
+}
+  
+message doorRequest{
+	string passCode = 1;
+}
+
+message doorReply{
+	string success = 1;
+	
+}
+
+message tempRequest{
+	double temp = 1;
+}
+
+message tempReply{
+	string tooHigh = 1;
+	string tooLow = 2;
+}
+
+message lightRequest{
+	double timeElapsed = 1;
+}
+
+message lightReply{
+	string stayOn = 1;
+	string turnOff = 2;
+}

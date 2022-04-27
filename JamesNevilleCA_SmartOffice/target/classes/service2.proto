@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "ds.java.smartOffice";
+option java_outer_classname = "DeskBookingServiceImpl";
+
+service DeskBooking{
+	rpc portalLogin (stream loginRequest) returns (loginRequest){}
+	rpc bookDesk (deskRequest) returns (deskReply){}
+}
+
+message loginRequest{
+	string username = 1;
+}
+
+
+message deskRequest{
+	int32 bookDesk = 1;
+}
+
+message deskReply{
+	string deskBooked = 1;
+}
+

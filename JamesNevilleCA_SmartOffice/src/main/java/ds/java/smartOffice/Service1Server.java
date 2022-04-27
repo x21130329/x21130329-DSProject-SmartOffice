@@ -19,7 +19,6 @@ import ds.java.smartOffice.RoomControllerGrpc.RoomControllerImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-import java.util.Random;
 
 public class Service1Server extends RoomControllerImplBase {
 	
