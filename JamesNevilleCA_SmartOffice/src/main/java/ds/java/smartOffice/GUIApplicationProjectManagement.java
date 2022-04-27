@@ -8,8 +8,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
@@ -17,24 +15,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import ds.java.smartOffice.DeskBookingGrpc.DeskBookingBlockingStub;
-import ds.java.smartOffice.DeskBookingGrpc.DeskBookingStub;
 import ds.java.smartOffice.ProjectManagementGrpc.ProjectManagementBlockingStub;
-import ds.java.smartOffice.ProjectManagementGrpc.ProjectManagementStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.stub.StreamObserver;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Iterator;
 import java.awt.event.ActionEvent;
 
 public class GUIApplicationProjectManagement {
 	private static ProjectManagementBlockingStub blockingStub;
-	private static ProjectManagementStub asyncStub;
 
 	private ServiceInfo projectManagementInfo;
 	
@@ -71,8 +63,6 @@ public GUIApplicationProjectManagement() {
 
 		//stubs -- generate from proto
 		blockingStub = ProjectManagementGrpc.newBlockingStub(channel);
-
-		asyncStub = ProjectManagementGrpc.newStub(channel);
 
 		
 		initialize();

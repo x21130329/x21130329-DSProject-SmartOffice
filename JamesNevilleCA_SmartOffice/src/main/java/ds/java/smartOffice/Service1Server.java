@@ -1,13 +1,10 @@
 package ds.java.smartOffice;
 
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
-import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Random;
 

@@ -11,8 +11,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -28,7 +26,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Iterator;
 import java.awt.event.ActionEvent;
 
 public class GUIApplicationDeskBooking {

@@ -2,18 +2,12 @@ package ds.java.smartOffice;
 
 import java.io.IOException;
 import java.util.Properties;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.Properties;
-import java.util.Random;
 
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;

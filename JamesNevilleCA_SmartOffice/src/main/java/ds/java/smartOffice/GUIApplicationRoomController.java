@@ -34,7 +34,6 @@ import java.awt.event.ActionEvent;
 public class GUIApplicationRoomController {
 	
 	private static RoomControllerBlockingStub blockingStub;
-	private static RoomControllerStub asyncStub;
 
 	private ServiceInfo roomControllerInfo;
 	
@@ -72,8 +71,6 @@ public class GUIApplicationRoomController {
 
 		//stubs -- generate from proto
 		blockingStub = RoomControllerGrpc.newBlockingStub(channel);
-
-		asyncStub = RoomControllerGrpc.newStub(channel);
 
 		
 		initialize();
@@ -184,13 +181,6 @@ public class GUIApplicationRoomController {
 		
 		JScrollPane scrollPane = new JScrollPane(textResponse);
 		
-		//textResponse.setSize(new Dimension(15, 30));
-		
-		
-		JPanel panel_service_2 = new JPanel();
-		frame.getContentPane().add(panel_service_2);
-		panel_service_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
 		JLabel lblNewLabel_2 = new JLabel("Change Office Lighting" + "\n");
 		
 		
@@ -229,9 +219,9 @@ public class GUIApplicationRoomController {
 					tempReply temp = response.next();
 					tempReply temp2 = response1.next();
 					
-					textResponse.append(((tempReplyOrBuilder) temp).getTempResult1()+ "");
+					textResponse.append(((tempReplyOrBuilder) temp)+ "");
 					System.out.println(temp);
-					textResponse.append(((tempReplyOrBuilder) temp2).getTempResult2()+ "\n");
+					textResponse.append(((tempReplyOrBuilder) temp2)+ "\n");
 					System.out.println(temp2);
 				}
 			}
