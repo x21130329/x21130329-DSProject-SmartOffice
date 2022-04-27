@@ -32,6 +32,7 @@ ds\java\smartOffice\GUIApplicationDeskBooking$4.class
 ds\java\smartOffice\lightRequestOrBuilder.class
 ds\java\smartOffice\loginRequest.class
 ds\java\smartOffice\ProjectManagementServiceImpl$1.class
+ds\java\smartOffice\GUIApplicationProjectManagement$4.class
 ds\java\smartOffice\GUIApplicationRoomController$5.class
 ds\java\smartOffice\ProjectManagementGrpc$ProjectManagementBlockingStub.class
 ds\java\smartOffice\stateRequest$1.class
@@ -75,6 +76,7 @@ ds\java\smartOffice\RoomControllerGrpc$RoomControllerBlockingStub.class
 ds\java\smartOffice\ProjectManagementServiceImpl.class
 ds\java\smartOffice\tempRequest$1.class
 ds\java\smartOffice\RoomControllerGrpc$RoomControllerMethodDescriptorSupplier.class
+ds\java\smartOffice\GUIApplicationProjectManagement$3.class
 ds\java\smartOffice\GUIApplicationRoomController.class
 ds\java\smartOffice\ProjectManagementGrpc$1.class
 ds\java\smartOffice\GUIApplicationRoomController$1.class

@@ -34,7 +34,7 @@ public final class ProjectManagementGrpc {
       fullMethodName = SERVICE_NAME + '/' + "deadline",
       requestType = ds.java.smartOffice.deadlineRequest.class,
       responseType = ds.java.smartOffice.deadlineReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<ds.java.smartOffice.deadlineRequest,
       ds.java.smartOffice.deadlineReply> getDeadlineMethod() {
     io.grpc.MethodDescriptor<ds.java.smartOffice.deadlineRequest, ds.java.smartOffice.deadlineReply> getDeadlineMethod;
@@ -43,7 +43,7 @@ public final class ProjectManagementGrpc {
         if ((getDeadlineMethod = ProjectManagementGrpc.getDeadlineMethod) == null) {
           ProjectManagementGrpc.getDeadlineMethod = getDeadlineMethod = 
               io.grpc.MethodDescriptor.<ds.java.smartOffice.deadlineRequest, ds.java.smartOffice.deadlineReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "ProjectManagement", "deadline"))
               .setSampledToLocalTracing(true)
@@ -120,9 +120,9 @@ public final class ProjectManagementGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<ds.java.smartOffice.deadlineRequest> deadline(
+    public void deadline(ds.java.smartOffice.deadlineRequest request,
         io.grpc.stub.StreamObserver<ds.java.smartOffice.deadlineReply> responseObserver) {
-      return asyncUnimplementedStreamingCall(getDeadlineMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getDeadlineMethod(), responseObserver);
     }
 
     /**
@@ -136,7 +136,7 @@ public final class ProjectManagementGrpc {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getDeadlineMethod(),
-            asyncClientStreamingCall(
+            asyncUnaryCall(
               new MethodHandlers<
                 ds.java.smartOffice.deadlineRequest,
                 ds.java.smartOffice.deadlineReply>(
@@ -172,10 +172,10 @@ public final class ProjectManagementGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<ds.java.smartOffice.deadlineRequest> deadline(
+    public void deadline(ds.java.smartOffice.deadlineRequest request,
         io.grpc.stub.StreamObserver<ds.java.smartOffice.deadlineReply> responseObserver) {
-      return asyncClientStreamingCall(
-          getChannel().newCall(getDeadlineMethod(), getCallOptions()), responseObserver);
+      asyncUnaryCall(
+          getChannel().newCall(getDeadlineMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -207,6 +207,13 @@ public final class ProjectManagementGrpc {
 
     /**
      */
+    public ds.java.smartOffice.deadlineReply deadline(ds.java.smartOffice.deadlineRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getDeadlineMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public ds.java.smartOffice.stateReply checkState(ds.java.smartOffice.stateRequest request) {
       return blockingUnaryCall(
           getChannel(), getCheckStateMethod(), getCallOptions(), request);
@@ -233,6 +240,14 @@ public final class ProjectManagementGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<ds.java.smartOffice.deadlineReply> deadline(
+        ds.java.smartOffice.deadlineRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeadlineMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<ds.java.smartOffice.stateReply> checkState(
         ds.java.smartOffice.stateRequest request) {
       return futureUnaryCall(
@@ -240,8 +255,8 @@ public final class ProjectManagementGrpc {
     }
   }
 
-  private static final int METHODID_CHECK_STATE = 0;
-  private static final int METHODID_DEADLINE = 1;
+  private static final int METHODID_DEADLINE = 0;
+  private static final int METHODID_CHECK_STATE = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -260,6 +275,10 @@ public final class ProjectManagementGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_DEADLINE:
+          serviceImpl.deadline((ds.java.smartOffice.deadlineRequest) request,
+              (io.grpc.stub.StreamObserver<ds.java.smartOffice.deadlineReply>) responseObserver);
+          break;
         case METHODID_CHECK_STATE:
           serviceImpl.checkState((ds.java.smartOffice.stateRequest) request,
               (io.grpc.stub.StreamObserver<ds.java.smartOffice.stateReply>) responseObserver);
@@ -274,9 +293,6 @@ public final class ProjectManagementGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_DEADLINE:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.deadline(
-              (io.grpc.stub.StreamObserver<ds.java.smartOffice.deadlineReply>) responseObserver);
         default:
           throw new AssertionError();
       }

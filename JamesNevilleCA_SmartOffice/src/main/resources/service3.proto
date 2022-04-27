@@ -6,7 +6,7 @@ option java_package = "ds.java.smartOffice";
 option java_outer_classname = "ProjectManagementServiceImpl";
 
 service ProjectManagement{
-	rpc deadline (stream deadlineRequest) returns (deadlineReply){}
+	rpc deadline (deadlineRequest) returns (deadlineReply){}
 	rpc checkState (stateRequest) returns (stateReply){}
 }
 

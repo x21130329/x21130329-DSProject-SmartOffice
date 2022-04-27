@@ -47,11 +47,11 @@ public final class ProjectManagementServiceImpl {
       "rojectName\030\001 \001(\t\"$\n\rdeadlineReply\022\023\n\013pro" +
       "jectTime\030\001 \001(\t\"(\n\014stateRequest\022\030\n\020projec" +
       "tNameState\030\001 \001(\t\"%\n\nstateReply\022\027\n\017projec" +
-      "tComplete\030\001 \001(\t2q\n\021ProjectManagement\0220\n\010" +
+      "tComplete\030\001 \001(\t2o\n\021ProjectManagement\022.\n\010" +
       "deadline\022\020.deadlineRequest\032\016.deadlineRep" +
-      "ly\"\000(\001\022*\n\ncheckState\022\r.stateRequest\032\013.st" +
-      "ateReply\"\000B5\n\023ds.java.smartOfficeB\034Proje" +
-      "ctManagementServiceImplP\001b\006proto3"
+      "ly\"\000\022*\n\ncheckState\022\r.stateRequest\032\013.stat" +
+      "eReply\"\000B5\n\023ds.java.smartOfficeB\034Project" +
+      "ManagementServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -52,7 +52,8 @@ public class Service3Server extends ProjectManagementImplBase{
 			e.printStackTrace();
 		}
 	}
-private Properties getProperties() {
+	
+	private Properties getProperties() {
 	
 	Properties prop = null;		
 	
@@ -75,9 +76,9 @@ private Properties getProperties() {
         }
 
 	 return prop;
-}
+	}
 
-private  void registerService(Properties prop) {
+	private  void registerService(Properties prop) {
 	
 	 try {
           // Create a JmDNS instance
@@ -109,6 +110,47 @@ private  void registerService(Properties prop) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-  
-}
+	}
+	
+	public void deadline(deadlineRequest request, 
+			StreamObserver<deadlineReply> responseObserver) {
+		
+		String value = ""; 
+		if (request.getProjectName().equals("Cloud")) {
+			value = "The deadline is 24th June 2022";
+		} else if (request.getProjectName().equals("Systems")) {
+			value = "The deadline is 13rd May 2022";
+		} else if (request.getProjectName().equals("HR")) {
+			value = "The deadline is 15th July 2022";
+		} else {
+			value = "There is no project by this name";
+		}
+		
+		deadlineReply reply = deadlineReply.newBuilder().setProjectTime(value).build();
+
+		responseObserver.onNext(reply);
+
+		responseObserver.onCompleted();
+	}
+	
+	public void checkState(stateRequest request, 
+			StreamObserver<stateReply> responseObserver) {
+		
+		String value = ""; 
+		if (request.getProjectNameState().equals("Cloud")) {
+			value = "The project " + request.getProjectNameState() + " is not yet completed";
+		} else if (request.getProjectNameState().equals("Systems")) {
+			value = "The project " + request.getProjectNameState() + " is not yet completed";
+		} else if (request.getProjectNameState().equals("HR")) {
+			value = "The project " + request.getProjectNameState() + " is not yet completed";
+		} else {
+			value = "The project " + request.getProjectNameState() + " has been completed";
+		}
+		
+		stateReply reply = stateReply.newBuilder().setProjectComplete(value).build();
+
+		responseObserver.onNext(reply);
+
+		responseObserver.onCompleted();
+	}
 }

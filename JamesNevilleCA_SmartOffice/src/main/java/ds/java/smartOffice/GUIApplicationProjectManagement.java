@@ -40,7 +40,7 @@ public class GUIApplicationProjectManagement {
 	
 	
 	private JFrame frame;
-	private JTextField textNumber1;
+	private JTextField textMes1;
 	private JTextField textMes;
 	private JTextArea textResponse ;
 	
@@ -152,10 +152,53 @@ public GUIApplicationProjectManagement() {
 		frame.getContentPane().add(panel_service_1);
 		panel_service_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		JLabel lblNewLabel_1 = new JLabel("Enter Project");
 		
+		textMes = new JTextField();
 		
+		JButton btnDeadline = new JButton("Find");
+		btnDeadline.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String mes = textMes.getText();
+				deadlineRequest req = deadlineRequest.newBuilder().setProjectName(mes).build();
+				deadlineReply response = blockingStub.deadline(req);
+				
+				textResponse.append(response.getProjectTime()+ "\n");
+				
+				System.out.println("res: " + response.getProjectTime());
+			}
+		});
 		
-
+		JLabel lblNewLabel_2 = new JLabel("Enter Project");
+		
+		textMes1 = new JTextField();
+		JButton btnState = new JButton("State");
+		btnState.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String mes = textMes1.getText();
+				stateRequest req = stateRequest.newBuilder().setProjectNameState(mes).build();
+				stateReply response = blockingStub.checkState(req);
+				
+				textResponse.append(response.getProjectComplete()+ "\n");
+				
+				System.out.println("res: " + response.getProjectComplete());
+			}
+		});
+		textResponse = new JTextArea(8, 20);
+		textResponse .setLineWrap(true);
+		textResponse.setWrapStyleWord(true);
+		
+		JScrollPane scrollPane = new JScrollPane(textResponse);
+		
+		panel_service_1.add(lblNewLabel_1);
+		panel_service_1.add(textMes);
+		textMes.setColumns(10);
+		panel_service_1.add(btnDeadline);
+		panel_service_1.add(lblNewLabel_2);
+		panel_service_1.add(textMes1);
+		textMes1.setColumns(10);
+		panel_service_1.add(btnState);
+		panel_service_1.add(scrollPane);
 			
 		
 	}
